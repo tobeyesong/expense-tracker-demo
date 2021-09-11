@@ -59,6 +59,16 @@ const TransactionList = () => {
                         </time>
                       </span>
                     </span>
+                    <td className='px-6 py-4 text-sm text-gray-500 whitespace-nowrap md:block'>
+                      <span className='inline-flex items-center p-1 font-medium '>
+                        <Link to={`/transactions/${transaction.id}/delete`}>
+                          <TrashIcon
+                            className='w-5 h-5 rounded-md hover:bg-red-600 hover:text-gray-100'
+                            aria-hidden='true'
+                          />{" "}
+                        </Link>
+                      </span>
+                    </td>
                     <ChevronRightIcon
                       className='flex-shrink-0 w-5 h-5 text-gray-400'
                       aria-hidden='true'
