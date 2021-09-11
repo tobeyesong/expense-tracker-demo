@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalState";
 
 import DashboardScreen from "../../screens/DashboardScreen";
+import formatDate from "../../utils/formatDate";
 
 const required = (value) => (value ? undefined : "Required");
 const mustBeNumber = (value) => (isNaN(value) ? "Must be a number" : undefined);
@@ -29,6 +30,7 @@ const CreateTransactionModal = (props) => {
     const newTransaction = {
       id: Math.floor(Math.random() * 10000) + "",
       ...values,
+      datetime: formatDate(new Date()),
     };
 
     addTransaction(newTransaction);
