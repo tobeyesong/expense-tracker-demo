@@ -130,12 +130,6 @@ const TransactionList = () => {
                                 aria-hidden='true'
                               />{" "}
                             </Link>
-                            <Link to={`/transactions/${transaction.id}/edit`}>
-                              <PencilAltIcon
-                                className='w-5 h-5 rounded-md hover:bg-gray-800 hover:text-gray-100'
-                                aria-hidden='true'
-                              />
-                            </Link>
                           </span>
                         </td>
 
