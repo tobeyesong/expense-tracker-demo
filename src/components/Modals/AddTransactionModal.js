@@ -7,7 +7,7 @@ import { Form, Field } from "react-final-form";
 import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon, PlusCircleIcon } from "@heroicons/react/solid";
 
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalState";
 

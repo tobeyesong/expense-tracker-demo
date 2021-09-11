@@ -11,7 +11,6 @@ import {
   CashIcon,
   TrashIcon,
   ChevronRightIcon,
-  PencilAltIcon,
 } from "@heroicons/react/outline";
 
 const categoryStyles = {

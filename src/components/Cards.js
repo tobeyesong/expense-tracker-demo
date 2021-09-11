@@ -12,7 +12,6 @@ import {
   CurrencyDollarIcon,
   TrendingDownIcon,
 } from "@heroicons/react/outline";
-import CardLoader from "./Loader/CardLoader";
 const cardStyles = {
   balance: "border border-blue-300",
   income: "border border-green-300",

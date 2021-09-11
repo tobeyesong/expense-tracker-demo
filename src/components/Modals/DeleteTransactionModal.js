@@ -4,7 +4,7 @@
 
 // /** @format */
 import React from "react";
-import { useRef, useState, useReducer, useContext } from "react";
+import { useRef, useState, useContext } from "react";
 
 import { Redirect, Link } from "react-router-dom";
 
@@ -19,8 +19,6 @@ const DeleteTransactionModal = ({ match, history }) => {
   const cancelButtonRef = useRef(null);
 
   const { deleteTransaction } = useContext(GlobalContext);
-  const [state, dispatch] = useReducer();
-  const { success: successDelete } = deleteTransaction;
 
   if (!open) {
     return <Redirect to='/' />;
