@@ -48,12 +48,13 @@ const TransactionList = () => {
                       />
                       <span className='flex flex-col text-sm text-gray-500 truncate'>
                         <span className='truncate'>{transaction.name}</span>
-                        <span>
-                          <span className='font-medium text-gray-900'>
-                            ${numberWithCommas(transaction.amount)}
-                          </span>
-                          {transaction.currency}
+                        <span className='font-medium text-gray-900'>
+                          $
+                          {transaction.category === "expense"
+                            ? numberWithCommas(-transaction.amount)
+                            : numberWithCommas(transaction.amount)}
                         </span>
+                        {transaction.currency}
                         <time dateTime={transaction.datetime}>
                           {transaction.datetime}
                         </time>
@@ -131,6 +132,7 @@ const TransactionList = () => {
                         </td>
                         <td className='px-6 py-4 text-sm text-right text-gray-500 whitespace-nowrap'>
                           <span className='font-medium text-gray-900'>
+                            $
                             {transaction.category === "expense"
                               ? numberWithCommas(-transaction.amount)
                               : numberWithCommas(transaction.amount)}

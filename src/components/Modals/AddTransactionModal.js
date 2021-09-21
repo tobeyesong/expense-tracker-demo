@@ -38,6 +38,7 @@ const CreateTransactionModal = () => {
     const newTransaction = {
       id: Math.floor(Math.random() * 10000) + "",
       ...values,
+      currency: "USD",
       datetime: formatDate(new Date()),
     };
 
