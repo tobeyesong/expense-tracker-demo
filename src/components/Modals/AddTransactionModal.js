@@ -11,13 +11,21 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalState";
 
+import expenseCategories from "../../constants/expenseCategories";
+import incomeCategories from "../../constants/incomeCategories";
+
 import DashboardScreen from "../../screens/DashboardScreen";
 import formatDate from "../../utils/formatDate";
 
 const required = (value) => (value ? undefined : "Required");
 const mustBeNumber = (value) => (isNaN(value) ? "Must be a number" : undefined);
 
-const CreateTransactionModal = (props) => {
+const Condition = ({ when, is, children }) => (
+  <Field name={when} subscription={{ value: true }}>
+    {({ input: { value } }) => (value === is ? children : null)}
+  </Field>
+);
+const CreateTransactionModal = () => {
   const history = useHistory();
   const { addTransaction } = useContext(GlobalContext);
   const [open, setOpen] = useState(true);
@@ -84,7 +92,7 @@ const CreateTransactionModal = (props) => {
                     <form
                       className='mt-8 mb-4 space-y-6'
                       onSubmit={handleSubmit}>
-                      <div className='p-4 border-2 border-gray-100 rounded-md shadow-sm'>
+                      <div className='p-4 border-2 rounded-md shadow-sm border-black-100'>
                         <Field
                           name='name'
                           component='input'
@@ -155,9 +163,9 @@ const CreateTransactionModal = (props) => {
                           name='category'
                           component='input'
                           validate={required}>
-                          {({ input, meta }) => (
-                            <div>
-                              <div className='cursor-pointer '>
+                          {({ meta }) => (
+                            <div className='p-1 mt-1 '>
+                              <div className='cursor-pointer'>
                                 <label className='pr-3 '>
                                   <Field
                                     name='category'
@@ -199,6 +207,39 @@ const CreateTransactionModal = (props) => {
                           )}
                         </Field>
 
+                        <Condition when='category' is='income'>
+                          <Field
+                            name='incomeType'
+                            component='select'
+                            className='p-1 pl-2 bg-green-100 rounded-lg'
+                            name='type'
+                            validate={required}>
+                            <option />$
+                            {incomeCategories.map((c) => (
+                              <option
+                                key={c.type}
+                                value={c.type}
+                                className='rounded-md'>
+                                {c.type}
+                              </option>
+                            ))}
+                          </Field>
+                        </Condition>
+                        <Condition when='category' is='expense'>
+                          <Field
+                            name='expenseType'
+                            name='type'
+                            component='select'
+                            className='p-1 pl-2 bg-red-100 rounded-lg '
+                            validate={required}>
+                            <option />$
+                            {expenseCategories.map((c) => (
+                              <option key={c.type} value={c.type}>
+                                {c.type}
+                              </option>
+                            ))}
+                          </Field>
+                        </Condition>
                         {submitError && (
                           <div className='p-1 mt-1 mb-2 transition duration-500 ease-in-out rounded-md bg-red-50'>
                             <div className='flex'>

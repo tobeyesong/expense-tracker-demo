@@ -14,8 +14,8 @@ import {
 } from "@heroicons/react/outline";
 
 const categoryStyles = {
-  expense: "border-r-4 pl-2 border-l-4 border-red-600",
-  income: "border-r-4 pl-2 mr-4 border-l-4 border-green-600",
+  expense: " pl-2 border-l-4 border-red-600",
+  income: " pl-2  border-l-4 border-green-600",
 };
 
 function classNames(...classes) {
@@ -91,6 +91,7 @@ const TransactionList = () => {
                       <th className='px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase bg-gray-50'>
                         Transaction
                       </th>
+
                       <th className='px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-500 uppercase bg-gray-50'>
                         Amount
                       </th>
@@ -99,6 +100,9 @@ const TransactionList = () => {
                       </th>
                       <th className='px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-500 uppercase bg-gray-50'>
                         Date
+                      </th>
+                      <th className='px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase bg-gray-50 md:block'>
+                        Type
                       </th>
                     </tr>
                   </thead>
@@ -127,11 +131,13 @@ const TransactionList = () => {
                         </td>
                         <td className='px-6 py-4 text-sm text-right text-gray-500 whitespace-nowrap'>
                           <span className='font-medium text-gray-900'>
-                            ${numberWithCommas(transaction.amount)}
+                            {transaction.category === "expense"
+                              ? numberWithCommas(-transaction.amount)
+                              : numberWithCommas(transaction.amount)}
                           </span>
                           {transaction.currency}
                         </td>
-                        <td className='hidden px-6 py-4 text-sm text-gray-500 whitespace-nowrap md:block'>
+                        <td className='hidden px-6 py-4 text-sm text-center text-gray-500 whitespace-nowrap md:block'>
                           <span className='inline-flex items-center p-1 font-medium '>
                             <Link to={`/transactions/${transaction.id}/delete`}>
                               <TrashIcon
@@ -141,11 +147,14 @@ const TransactionList = () => {
                             </Link>
                           </span>
                         </td>
-
                         <td className='px-6 py-4 text-sm text-right text-gray-500 whitespace-nowrap'>
                           <time dateTime={transaction.datetime}>
                             {transaction.datetime}
                           </time>
+                        </td>
+
+                        <td className='px-6 py-4 text-sm text-left text-gray-500 whitespace-nowrap'>
+                          {transaction.type}
                         </td>
                       </tr>
                     ))}

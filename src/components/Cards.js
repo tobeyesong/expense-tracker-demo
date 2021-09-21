@@ -6,6 +6,7 @@ import React, { useContext } from "react";
 
 import { numberWithCommas } from "../utils/format";
 import { GlobalContext } from "../context/GlobalState";
+// import useTransactions from "../useTransactions";
 
 import {
   ScaleIcon,
@@ -25,23 +26,31 @@ function classNames(...classes) {
 const Cards = () => {
   const { transactions } = useContext(GlobalContext);
 
-  const amounts = transactions.map((transaction) => transaction.amount);
+  const expenseTransactions = transactions.filter(
+    (t) => t.category === "expense"
+  );
+  const incomeTransactions = transactions.filter(
+    (t) => t.category === "income"
+  );
+
+  // const { total, chartData } = useTransactions(title);
 
   //BALANCE
-  const total = amounts
-    .reduce((acc, item) => Number(acc) + Number(item), 0)
-    .toFixed(2);
-
+  const balance = transactions.reduce(
+    (acc, currVal) =>
+      currVal.category === "expense"
+        ? acc - currVal.amount
+        : acc + currVal.amount,
+    0
+  );
   //INCOME
-  const income = amounts
-    .filter((item) => item > 0)
-    .reduce((acc, item) => (acc += +item), 0)
+  const income = incomeTransactions
+    .reduce((acc, currVal) => (acc += +currVal.amount), 0)
     .toFixed(2);
 
   //EXPENSE
-  const expense = amounts
-    .filter((item) => item < 0)
-    .reduce((acc, item) => (acc += +item), 0)
+  const expense = expenseTransactions
+    .reduce((acc, currVal) => (acc += +currVal.amount), 0)
     .toFixed(2);
 
   const cards = [
@@ -49,7 +58,7 @@ const Cards = () => {
       name: "Balance",
       href: "#",
       icon: ScaleIcon,
-      amount: total,
+      amount: balance,
       style: "balance",
     },
     {
