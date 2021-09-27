@@ -92,7 +92,7 @@ const Cards = () => {
               {cards.map((card) => (
                 <div
                   key={card.name}
-                  className='overflow-hidden transition duration-200 ease-in transform rounded-lg hover:bg-gray-600 hover:-translate-y-2 hover:shadow-lg'>
+                  className='overflow-hidden transition duration-200 ease-in rounded-lg hover:bg-gray-600 hover:shadow-lg'>
                   <div className={classNames(cardStyles[card.style], "p-3")}>
                     <div className='flex items-center '>
                       <div className='flex-shrink-0'>
@@ -116,13 +116,7 @@ const Cards = () => {
                     </div>
                   </div>
                   <div className='px-5 py-3 bg-gray-600 shadow-md'>
-                    <div className='text-sm'>
-                      <a
-                        href={card.href}
-                        className='font-mediumover:text-cyan-900'>
-                        View all
-                      </a>
-                    </div>
+                    <div className='text-sm'></div>
                   </div>
                 </div>
               ))}
