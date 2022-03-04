@@ -6,7 +6,7 @@
 import React from "react";
 import { useRef, useState, useContext } from "react";
 
-import { Redirect, Link } from "react-router-dom";
+import { Navigate, Link, useNavigate, useParams } from "react-router-dom";
 
 import DashboardScreen from "../../screens/DashboardScreen";
 import StandardModal from "./StandardModal";
@@ -14,19 +14,20 @@ import { GlobalContext } from "../../context/GlobalState";
 
 const DeleteTransactionModal = ({ match, history }) => {
   //   const dispatch = useDispatch();
-  const transactionId = match.params.id;
+  const transactionId = useParams();
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
+  const navigate = useNavigate();
 
   const { deleteTransaction } = useContext(GlobalContext);
 
   if (!open) {
-    return <Redirect to='/' />;
+    return <Navigate to='/' />;
   }
 
   const deleteHandler = (id) => {
     deleteTransaction(id);
-    history.push("/");
+    navigate("/");
   };
 
   const actions = (
@@ -34,7 +35,7 @@ const DeleteTransactionModal = ({ match, history }) => {
       <button
         type='button'
         className='inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm'
-        onClick={() => deleteHandler(transactionId)}>
+        onClick={() => deleteHandler(transactionId.id)}>
         Delete
       </button>
       <Link

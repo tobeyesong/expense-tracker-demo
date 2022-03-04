@@ -27,7 +27,7 @@ const TransactionList = () => {
 
   return (
     <div className='mt-8'>
-      <h2 className='max-w-6xl px-4 mx-auto mt-8 text-lg font-medium leading-6 text-gray-900 sm:px-6 lg:px-8'>
+      <h2 className='max-w-6xl px-4 mx-auto text-lg font-medium leading-6 text-gray-900 sm:px-6 lg:px-8'>
         Recent activity
       </h2>
 
@@ -61,14 +61,14 @@ const TransactionList = () => {
                       </span>
                     </span>
                     <td className='px-6 py-4 text-sm text-gray-500 whitespace-nowrap md:block'>
-                      <span className='inline-flex items-center p-1 font-medium '>
+                      <div className='inline-flex items-center p-1 font-medium '>
                         <Link to={`/transactions/${transaction.id}/delete`}>
                           <TrashIcon
                             className='w-5 h-5 rounded-md hover:bg-red-600 hover:text-gray-100'
                             aria-hidden='true'
                           />{" "}
                         </Link>
-                      </span>
+                      </div>
                     </td>
                     <ChevronRightIcon
                       className='flex-shrink-0 w-5 h-5 text-gray-400'

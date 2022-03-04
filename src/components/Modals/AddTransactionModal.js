@@ -7,8 +7,7 @@ import { Form, Field } from "react-final-form";
 import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon, PlusCircleIcon } from "@heroicons/react/solid";
 
-import { Redirect } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalState";
 
 import expenseCategories from "../../constants/expenseCategories";
@@ -26,13 +25,13 @@ const Condition = ({ when, is, children }) => (
   </Field>
 );
 const CreateTransactionModal = () => {
-  const history = useHistory();
   const { addTransaction } = useContext(GlobalContext);
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
+  const navigate = useNavigate();
 
   if (!open) {
-    return <Redirect to='/' />;
+    return <Navigate to='/' />;
   }
   const onSubmit = (values) => {
     const newTransaction = {
@@ -43,7 +42,7 @@ const CreateTransactionModal = () => {
     };
 
     addTransaction(newTransaction);
-    history.push("/");
+    navigate("/");
   };
 
   return (

@@ -7,7 +7,7 @@ import { CheckCircleIcon, OfficeBuildingIcon } from "@heroicons/react/solid";
 
 export const Header = () => {
   return (
-    <main className='relative z-0 flex-1 pb-8 overflow-y-auto'>
+    <main className='relative z-0 flex-1 overflow-y-auto'>
       {/* Page header */}
       <div className='bg-white shadow'>
         <div className='px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8'>

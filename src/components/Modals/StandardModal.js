@@ -4,7 +4,7 @@ import React from "react";
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationIcon } from "@heroicons/react/outline";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 export default function Modal(props) {
   const [open, setOpen] = useState(true);
@@ -12,7 +12,7 @@ export default function Modal(props) {
   const cancelButtonRef = useRef(null);
 
   if (!open) {
-    return <Redirect to='/' />;
+    return <Navigate to='/' />;
   }
 
   return (
