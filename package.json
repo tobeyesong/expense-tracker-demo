@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.5.3",
     "@craco/craco": "^6.4.3",
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.5",
@@ -12,14 +11,12 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
     "chart.js": "^3.7.0",
-    "final-form": "^4.20.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-final-form": "^6.5.8",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "recharts": "^2.1.9",
-    "scramjet": "^4.36.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
