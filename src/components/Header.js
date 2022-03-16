@@ -19,8 +19,8 @@ export const Header = () => {
     <main className='relative z-0 flex-1 overflow-y-auto'>
       {/* Page header */}
       <div className='bg-white'>
-        <div className='px-4 mx-2 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8 '>
-          <div className='overflow-hidden bg-white rounded-lg shadow-xl'>
+        <div className='px-4 m-2 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8 '>
+          <div className='overflow-hidden bg-white rounded-lg shadow-lg'>
             <h2 className='sr-only' id='profile-overview-title'>
               Profile Overview
             </h2>

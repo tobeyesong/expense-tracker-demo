@@ -123,10 +123,10 @@ const LineChartSection = () => {
             suggestions.slice(0, 5).map((suggestion, i) => (
               <div
                 key={i}
-                className='z-10 w-full p-2 text-base bg-white rounded-sm shadow-lg hover:text-gray-100 hover:bg-sky-600 max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'
+                className='z-10 w-full p-2 text-base bg-white rounded-sm shadow-lg cursor-pointer hover:text-gray-100 hover:bg-sky-600 max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'
                 onClick={() => onSuggestHandler(suggestion.Symbol)}>
                 <div className='flex items-center '>
-                  <div className='p-1 text-gray-800 border-2 rounded-md r bg-slate-100 border-slate-200'>
+                  <div className='p-1 text-gray-800 border-2 rounded-md  r bg-slate-100 border-slate-200'>
                     {suggestion.Symbol}
                   </div>
 
