@@ -20,7 +20,7 @@ run `npm start`
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
 
-![image](https://github.com/tobeyesong/expense-tracker-demo/assets/65470881/ce69ea56-946f-449c-9a32-cb150b59b137)
+![image](https://github.com/tobeyesong/expense-tracker-demo/assets/65470881/fd9f0bb4-50a2-4221-95d2-469881add41d)
 
 ![image](https://github.com/tobeyesong/expense-tracker-demo/assets/65470881/58af5c5b-dc0e-4275-9eba-3e21192d7a32)
 
